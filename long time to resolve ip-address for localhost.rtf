@@ -1,0 +1,19 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\info
+{\author Fauno Guazina}}\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Correct answer: Jvm takes a long time to resolve ip-address for localhost : {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/39636792/jvm-takes-a-long-time-to-resolve-ip-address-for-localhost/39698914#39698914"}}{\fldrslt https://stackoverflow.com/questions/39636792/jvm-takes-a-long-time-to-resolve-ip-address-for-localhost/39698914#39698914}} \
+\
+For the lazy people:\
+\
+sudo sed -i bak "s^127\\.0\\.0\\.1.*^127.0.0.1 localhost $(hostname)^g" /etc/hosts\
+sudo sed -i bak "s^::1.*^::1 localhost $(hostname)^g" /etc/hosts\
+sudo ifconfig en0 down\
+sudo ifconfig en0 up\
+}
