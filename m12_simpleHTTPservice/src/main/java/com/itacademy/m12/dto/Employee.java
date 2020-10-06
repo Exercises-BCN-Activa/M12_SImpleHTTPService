@@ -34,13 +34,14 @@ public class Employee {
 	 * @param name
 	 * @param job
 	 */
-	public Employee(Long id, String name, String role) {
+	public Employee(Long id, String name, String job) {
 		this.id = id;
 		this.name = name;
-		job = toCareer(role).getPosition();
-		salary = toCareer(role).getSalary();
+		CAREER career = toCareer(job);
+		this.job = career.getPosition();
+		this.salary = career.getSalary();
 	}
-
+	
 //getters
 
 	/**
@@ -90,17 +91,10 @@ public class Employee {
 	/**
 	 * @param role to set the job
 	 */
-	public void setJob(String role) {
-		job = toCareer(role).getPosition();
-		setSalary(role);
-	}
-
-	/**
-	 * @param role to set the salary
-	 */
-	public void setSalary(String role) {
-		salary = toCareer(role).getSalary();
-		setJob(role);
+	public void setJob(String job) {
+		CAREER career = toCareer(job); 
+		this.job = career.getPosition();
+		this.salary = career.getSalary();
 	}
 
 //To String
@@ -118,7 +112,7 @@ public class Employee {
 	 * @param role
 	 * @return CAREER Enum class object
 	 */
-	public static CAREER toCareer(String role) {
+	private CAREER toCareer(String role) {
 		try {
 			return CAREER.valueOf(role.substring(0, 1).toUpperCase());
 		} catch (Exception e) {

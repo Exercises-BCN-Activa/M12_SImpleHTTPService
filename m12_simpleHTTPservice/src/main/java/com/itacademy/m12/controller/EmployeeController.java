@@ -24,6 +24,7 @@ public class EmployeeController {
 	
 	@PostMapping("/employees")
 	public Employee createEmployee(@RequestBody Employee employee) {
+		System.out.println(employee);
 		return employeeServiceImplements.createEmployee(employee);
 	}
 
@@ -41,12 +42,12 @@ public class EmployeeController {
 
 	@GetMapping("/employees/name/{name}")
 	public List<Employee> readByName(@PathVariable(name="name") String name) {
-		return employeeServiceImplements.readByName(name);
+		return employeeServiceImplements.readByName(Util.toTitleCase(name));
 	}
 
-	@GetMapping("/employees/job/{role}")
-	public List<Employee> readByJob(@PathVariable(name="role") String role) {
-		return employeeServiceImplements.readByJob(role);
+	@GetMapping("/employees/job/{job}")
+	public List<Employee> readByJob(@PathVariable(name="job") String job) {
+		return employeeServiceImplements.readByJob(Util.toTitleCase(job));
 	}
 
 	@PutMapping("/employees/{id}")
@@ -66,5 +67,32 @@ public class EmployeeController {
 		employeeServiceImplements.deleteById(id);
 	}
 	
-
+	private static class Util {
+		
+		/**
+		 * method that converts a string to TitleCase, 
+		 * that is, each of the words in the string 
+		 * will have the first capital letter 
+		 * and all other lower case letters.
+		 * @param input string you want to convert
+		 * @return this same string capitalized only the first letters of each word
+		 */
+		public static String toTitleCase(String input) {
+		    StringBuilder titleCase = new StringBuilder(input.length());
+		    boolean nextTitleCase = true;
+		    for (Character c : input.toCharArray()) {
+	    		if (c.equals(' ') || c.equals('-') || c.equals('\'')) {
+	    			nextTitleCase = true;
+	    		} else if (nextTitleCase) {
+	    			c = Character.toUpperCase(c);
+	    			nextTitleCase = false;
+	    		} else {
+	    			c = Character.toLowerCase(c);
+	    		}
+	    		titleCase.append(c);
+	    	}
+		    return titleCase.toString();
+		}
+		
+	}
 }

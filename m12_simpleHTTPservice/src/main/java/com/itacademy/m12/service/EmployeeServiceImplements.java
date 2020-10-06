@@ -34,8 +34,8 @@ public class EmployeeServiceImplements implements IEmployeeService {
 		return iEmployeeDAO.findByName(name);
 	}
 	
-	public List<Employee> readByJob(String role) {
-		return iEmployeeDAO.findByJob(role);
+	public List<Employee> readByJob(String job) {
+		return iEmployeeDAO.findByJob(job);
 	}
 
 	@Override
