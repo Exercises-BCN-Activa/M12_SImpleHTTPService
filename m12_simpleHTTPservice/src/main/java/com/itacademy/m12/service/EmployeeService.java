@@ -9,45 +9,37 @@ import com.itacademy.m12.dto.Employee;
 import com.itacademy.m12.dao.IEmployeeDAO;
 
 @Service
-public class EmployeeServiceImplements implements IEmployeeService {
-	
+public class EmployeeService {
+
 	@Autowired
 	IEmployeeDAO iEmployeeDAO;
 
-	@Override
-	public Employee createEmployee(Employee employee) {
+	public Employee createEmployee(Employee employee) { // CREATE a new employee
 		return iEmployeeDAO.save(employee);
 	}
 
-	@Override
-	public List<Employee> readAllEmployee() {
+	public List<Employee> readAllEmployee() { // READ/list all employees
 		return iEmployeeDAO.findAll();
 	}
 
-	@Override
-	public Employee readById(Long id) {
+	public Employee readById(Long id) { // READ one employee by ID
 		return iEmployeeDAO.findById(id).get();
 	}
 
-	@Override
-	public List<Employee> readByName(String name) {
+	public List<Employee> readByName(String name) { // READ one employee by name
 		return iEmployeeDAO.findByName(name);
 	}
-	
-	public List<Employee> readByJob(String job) {
+
+	public List<Employee> readByJob(String job) { // READ one employee by job
 		return iEmployeeDAO.findByJob(job);
 	}
 
-	@Override
-	public Employee updateEmployee(Employee employee) {
+	public Employee updateEmployee(Employee employee) { // UPDATE one employee by ID
 		return iEmployeeDAO.save(employee);
 	}
 
-	@Override
-	public void deleteById(Long id) {
+	public void deleteById(Long id) { // DELETE one employee by ID
 		iEmployeeDAO.deleteById(id);
 	}
-	
-	
 
 }

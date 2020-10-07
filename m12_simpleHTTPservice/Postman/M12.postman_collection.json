@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "571e0462-3507-4428-a295-d6ad56eb8256",
+		"name": "IT Academy - M12",
+		"description": "In this practice you will learn to create HTTP requests with a complete CRUD (Create, Read, Update, Delete). That is why we will implement an MVC architecture pattern with repositories.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Employes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{IP}}{{port}}{{ALL}}",
+					"host": [
+						"{{IP}}{{port}}{{ALL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fauno\",\n\t\"job\": \"junior\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{IP}}{{port}}{{ALL}}",
+					"host": [
+						"{{IP}}{{port}}{{ALL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{IP}}{{port}}{{byId}}6",
+					"host": [
+						"{{IP}}{{port}}{{byId}}6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fauno Guazina\",\n\t\"job\": \"Junior\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{IP}}{{port}}{{byId}}6",
+					"host": [
+						"{{IP}}{{port}}{{byId}}6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{IP}}{{port}}{{byId}}6",
+					"host": [
+						"{{IP}}{{port}}{{byId}}6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{IP}}{{port}}{{byName}}jose marin",
+					"host": [
+						"{{IP}}{{port}}{{byName}}jose marin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by Job",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{IP}}{{port}}{{byRole}}junior",
+					"host": [
+						"{{IP}}{{port}}{{byRole}}junior"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8beed202-1e66-4bf3-9bc2-23e0e125ad85",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "91b4e10e-e49e-48ea-b980-327ade2759b3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "a0bab555-eb2a-4b0e-a244-f730ef182dee",
+			"key": "IP",
+			"value": "localhost:"
+		},
+		{
+			"id": "277c39c8-8fbe-45be-a702-30031e51930b",
+			"key": "port",
+			"value": "8181"
+		},
+		{
+			"id": "9e3b8fc4-db11-486e-8497-d85b11d0fda1",
+			"key": "ALL",
+			"value": "/api/employees"
+		},
+		{
+			"id": "1a0c5a14-9f17-4bd2-88f4-0a780dd9796c",
+			"key": "byId",
+			"value": "/api/employees/"
+		},
+		{
+			"id": "fc3d5ca5-6148-4c42-8a17-6418f70c6be8",
+			"key": "byName",
+			"value": "/api/employees/name/"
+		},
+		{
+			"id": "d43cd49b-345e-4aec-80be-96d3aad1bff1",
+			"key": "byRole",
+			"value": "/api/employees/job/"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
